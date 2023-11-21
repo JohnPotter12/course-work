@@ -61,11 +61,8 @@ const Modal = ({ isOpen, onClose, children, country, setIsModalOpen }) => {
     if(!setIsModalOpen){
         data = []
     }
-    console.log(data);
     async function dataHandle() {
         try {
-            console.log(country);
-            console.log(data);
             if (country !== '') {
                 const response = await axios.get(`http://localhost:5000/withdraw/history/${country}`)
                     .then((response) => {
@@ -113,8 +110,8 @@ const Modal = ({ isOpen, onClose, children, country, setIsModalOpen }) => {
                     <div className='main'>
                         <div className="items-head">
                             <div className="title-type">Тип тривоги</div>
-                            <div className="title">Період</div>
-                            <div className="title">Тривалість</div>
+                            <div className="title">Початок</div>
+                            <div className="title">Відбій</div>
                         </div>
                     </div>
                     <div className="items" id="regionItems">
@@ -123,9 +120,6 @@ const Modal = ({ isOpen, onClose, children, country, setIsModalOpen }) => {
                         {data.map((item) => (
                             <div className="item-top" key={item._id}>
                                 <div className="info">
-                                    <div className="icon">
-                                        {/* <img id="alertIcon" src="/images/content/icon_air.svg" alt="icon"> */}
-                                    </div>
                                     <div className="text">
                                         <div className="description air" id="alertType">Повітряна тривога</div>
                                         <div className="region">{controller(item.country)}</div>
@@ -143,9 +137,6 @@ const Modal = ({ isOpen, onClose, children, country, setIsModalOpen }) => {
                         <div className="item region" id="regionItem">
                             <div className="item-top">
                                 <div className="info">
-                                    <div className="icon">
-                                        {/* <img id="alertIcon" src="/images/content/icon_air.svg" alt="icon"> */}
-                                    </div>
                                     <div className="text">
                                         <div className="description air" id="alertType">Повітряна тривога</div>
                                         <div className="region">Черкаська область</div>
@@ -161,9 +152,6 @@ const Modal = ({ isOpen, onClose, children, country, setIsModalOpen }) => {
                         </div><div className="item region" id="regionItem">
                             <div className="item-top">
                                 <div className="info">
-                                    <div className="icon">
-                                        {/* <img id="alertIcon" src="/images/content/icon_air.svg" alt="icon"> */}
-                                    </div>
                                     <div className="text">
                                         <div className="description air" id="alertType">Повітряна тривога</div>
                                         <div className="region">Черкаська область</div>

@@ -1,30 +1,30 @@
-.info{
+.info1{
     font-family: e-ukraine,sans-serif;
     font-weight: 400;
-    box-sizing: border-box!important;
-    outline: none!important;
-    -webkit-tap-highlight-color: transparent;
     position: absolute;
     left: 24px;
     bottom: 20px;
     z-index: 0;
+    background-color: #64CCC5;
+    width: 300px;
+    border: 2px solid #00ffee;
+    border-radius: 5px;
 }
-.types {
+.types1 {
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-bottom: 16px;
 }
 
-.type{
+.type1{
     font-family: e-ukraine,sans-serif;
     font-weight: 400;
-    box-sizing: border-box!important;
-    outline: none!important;
-    -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 30px;
+    color: black;
 }
 
 .icon{
@@ -37,7 +37,7 @@
     height: 18px;
     border-radius: 2px;
     position: relative;
-    margin-right: 8px;
+    margin: 0 8px 0;
     background: rgb(185, 0, 0);
 }
 
@@ -51,6 +51,6 @@
     height: 18px;
     border-radius: 2px;
     position: relative;
-    margin-right: 8px;
+    margin: 0 8px 0;
     background: rgb(8, 93, 105);
 }

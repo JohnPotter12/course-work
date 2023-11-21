@@ -1,76 +1,94 @@
-import Arrow from '../image/icon-arrow.png'
-import '../style/globalInfo.css'
+import Arrow from "../image/icon-arrow.png";
+import "../style/globalInfo.css";
+import axios from "axios";
 
+const GlobalInfo = ({ isOpenSide, onCloseSide, data, setData }) => {
+  const citys = [
+    "Vinnytsia",
+    "Volynsk",
+    "Dnipro",
+    "Donetsk",
+    "Zhytomyr",
+    "Zakarpattia",
+    "Zaporizhzhia",
+    "Ivano-Frankivsk",
+    "Kyivska",
+    "Kirovohradsk",
+    "Luhansk",
+    "Lviv",
+    "Mykolayivska",
+    "Odesa",
+    "Poltava",
+    "Rivne",
+    "Sumy",
+    "Ternopilsk",
+    "Kharkivska",
+    "Khersonsk",
+    "Khmelnytska",
+    "Cherkassy",
+    "Chernivtsi",
+    "Chernihivska",
+  ];
 
-const GlobalInfo = () =>{
-    return(
-        <>
-        <div class="general-button">
-            <div class="dangers-info">
-                <div class="danger" >
-                    <div class="danger-icon"  >
-                    </div>
-                </div>
-                <span>Загрози:</span>
-                <div class="dangers">
-                    
-                <div class="danger" >
-                    <div class="danger-icon">
-                    </div>
-                    <p class="danger-count air">3</p>
-                </div></div> 
-            </div>
-            <button class="icon1">
-                <img src={Arrow} alt="icon"/>
-            </button>
-        </div>
-        <div class="general-aside">
-        <div class="city-item" >
-            <div class="text">
-                <div class="title">Дніпропетровська область</div>
-                <div class="description air">Повітряна тривога</div>
-                <div class="date">
-                    <p class="time">Cьогодні о 10:37</p>
-                    <p class="duration">195 д 15 год 37 хв</p>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="city-items">
-            
+  const oblast = [
+    "Вінницька область",
+    "Волинська область",
+    "Дніпропетровська область",
+    "Донецька область",
+    "Житомирська область",
+    "Закарпатська область",
+    "Запорізька область",
+    "Івано-Франківська область",
+    "Київська область",
+    "Кіровоградська область",
+    "Луганська область",
+    "Львівська область",
+    "Миколаївська область",
+    "Одеська область",
+    "Полтавська область",
+    "Рівненська область",
+    "Сумська область",
+    "Тернопільська область",
+    "Харківська область",
+    "Херсонська область",
+    "Хмельницька область",
+    "Черкаська область",
+    "Чернівецька область",
+    "Чернігівська область",
+  ];
+
+  const controller = (count) => {
+    for (let i = 0; i < citys.length; i++) {
+      if (citys[i] === count) {
+        return oblast[i];
+      }
+    }
+  };
+
+  return (
+    <div>
+      <div className={`sidenav ${isOpenSide ? "open" : ""}`}>
+        <button onClick={onCloseSide} className="close-btn">
+          <img src={Arrow} alt=""/>
+        </button>
+        {data.map((item) => (
+          <div class="city-items" key={item._id}>
             <div class="city-item">
-            <div class="text">
-                <div class="title">Донецька область</div>
-                <div class="description air">Повітряна тривога</div>
-                <div class="date">
-                    <p class="time">Сьогодні о о 15:19</p>
-                    <p class="duration">19хв. </p>
-                    </div>
+              <div class="text">
+                <div className="title-text">
+                  <div class="title">{controller(item.country)}</div>
+                  <div class="descriptions">Повітряна тривога</div>
                 </div>
-            </div><div class="city-item">
-            <div class="text">
-                <div class="title">Автономна Республіка Крим</div>
-                <div class="description air">Повітряна тривога</div>
                 <div class="date">
-                    <p class="time">11.12 о 00:22</p>
-                    <p class="duration">342д. 15год. 17хв. </p>
-                    </div>
+                  <p class="time">{item.startAlarm}</p>
                 </div>
-            </div><div class="city-item">
-            <div class="icon">
-            <div class="text">
-                <div class="title">Луганська область</div>
-                <div class="description air">Повітряна тривога</div>
-                <div class="date">
-                    <p class="time">04.04 о 19:45</p>
-                    <p class="duration">592д. 20год. 54хв. </p>
-                    </div>
-                </div>
-            </div></div>
-        </div>
-</>
-    )
-}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default GlobalInfo;
-
